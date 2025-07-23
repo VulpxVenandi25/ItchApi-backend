@@ -2,7 +2,6 @@ import os
 import requests
 from flask_cors import CORS
 from flask import Flask, jsonify, request
-from config import variables
 
 app = Flask(__name__)
 CORS(app)  # Habilita CORS para todas las rutas
@@ -13,7 +12,7 @@ PORT = int(os.getenv("PORT", 1003))
 @app.route("/apigame/<int:game_id>", methods=["GET"])
 def get_game(game_id):
     try:
-        api_key = variables.apiKey()
+        api_key = int(os.getenv("API_KEY"))
         headers = {"Authorization": api_key}
         
         # Hacemos la petición a la API de itch.io
