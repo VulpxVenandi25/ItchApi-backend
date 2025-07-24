@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/apigame/(.*)",
+      "dest": "/api/apigame?gameId=$1"
+    }
+  ]
+}
